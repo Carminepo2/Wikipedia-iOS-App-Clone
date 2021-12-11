@@ -8,17 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		75177757275EBEA800CD3928 /* WikipediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75177756275EBEA800CD3928 /* WikipediaApp.swift */; };
-		75177759275EBEA800CD3928 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75177758275EBEA800CD3928 /* ContentView.swift */; };
+		75177759275EBEA800CD3928 /* ExporeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75177758275EBEA800CD3928 /* ExporeView.swift */; };
 		7517775B275EBEA900CD3928 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7517775A275EBEA900CD3928 /* Assets.xcassets */; };
 		7517775E275EBEA900CD3928 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7517775D275EBEA900CD3928 /* Preview Assets.xcassets */; };
+		75177768275ECDC100CD3928 /* WikipediaPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75177767275ECDC100CD3928 /* WikipediaPageView.swift */; };
+		7517776A275F983F00CD3928 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75177769275F983F00CD3928 /* WebView.swift */; };
+		754AB6C4276145AD00BC36CC /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 754AB6C3276145AD00BC36CC /* script.js */; };
+		754AB6C7276150ED00BC36CC /* TopFiveReadArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */; };
+		754AB6CC2761532400BC36CC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CB2761532400BC36CC /* Date.swift */; };
+		7575F02F2763CDCB0098A1A2 /* AllTopReadArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */; };
+		75ACCAA027625B31004D6473 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ACCA9F27625B31004D6473 /* Array.swift */; };
+		75D833492762A66D00ABEC67 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D833482762A66D00ABEC67 /* CardView.swift */; };
+		75E48022276116490007124D /* WikipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E48021276116490007124D /* WikipediaViewModel.swift */; };
+		75E48025276117F60007124D /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E48024276117F60007124D /* WikipediaAPI.swift */; };
+		75FB0CDF2763BC5500554726 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB0CDE2763BC5500554726 /* ContentView.swift */; };
+		75FB0CE12763C23100554726 /* ArticleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB0CE02763C23100554726 /* ArticleCellView.swift */; };
+		75FB0CE32763C58300554726 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB0CE22763C58300554726 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		75177753275EBEA800CD3928 /* Wikipedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wikipedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75177756275EBEA800CD3928 /* WikipediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaApp.swift; sourceTree = "<group>"; };
-		75177758275EBEA800CD3928 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75177758275EBEA800CD3928 /* ExporeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExporeView.swift; sourceTree = "<group>"; };
 		7517775A275EBEA900CD3928 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7517775D275EBEA900CD3928 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		75177767275ECDC100CD3928 /* WikipediaPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaPageView.swift; sourceTree = "<group>"; };
+		75177769275F983F00CD3928 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		754AB6C3276145AD00BC36CC /* script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFiveReadArticlesView.swift; sourceTree = "<group>"; };
+		754AB6CB2761532400BC36CC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopReadArticlesView.swift; sourceTree = "<group>"; };
+		75ACCA9F27625B31004D6473 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		75D833482762A66D00ABEC67 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		75E48021276116490007124D /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
+		75E48024276117F60007124D /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
+		75FB0CDE2763BC5500554726 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		75FB0CE02763C23100554726 /* ArticleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCellView.swift; sourceTree = "<group>"; };
+		75FB0CE22763C58300554726 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +78,12 @@
 			isa = PBXGroup;
 			children = (
 				75177756275EBEA800CD3928 /* WikipediaApp.swift */,
-				75177758275EBEA800CD3928 /* ContentView.swift */,
+				75E48023276117E40007124D /* Model */,
+				75E4802627611E480007124D /* View */,
+				75E48020276115BF0007124D /* ViewModel */,
 				7517775A275EBEA900CD3928 /* Assets.xcassets */,
+				754AB6CA2761531200BC36CC /* Extensions */,
+				754AB6C22761435900BC36CC /* Utility */,
 				7517775C275EBEA900CD3928 /* Preview Content */,
 			);
 			path = Wikipedia;
@@ -65,6 +95,63 @@
 				7517775D275EBEA900CD3928 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		754AB6C22761435900BC36CC /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6C3276145AD00BC36CC /* script.js */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		754AB6C5276150D700BC36CC /* ExploreView */ = {
+			isa = PBXGroup;
+			children = (
+				75177758275EBEA800CD3928 /* ExporeView.swift */,
+				75D833482762A66D00ABEC67 /* CardView.swift */,
+				754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */,
+				7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */,
+				75FB0CE02763C23100554726 /* ArticleCellView.swift */,
+			);
+			path = ExploreView;
+			sourceTree = "<group>";
+		};
+		754AB6CA2761531200BC36CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6CB2761532400BC36CC /* Date.swift */,
+				75ACCA9F27625B31004D6473 /* Array.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		75E48020276115BF0007124D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				75E48021276116490007124D /* WikipediaViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		75E48023276117E40007124D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75E48024276117F60007124D /* WikipediaAPI.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		75E4802627611E480007124D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				754AB6C5276150D700BC36CC /* ExploreView */,
+				75177769275F983F00CD3928 /* WebView.swift */,
+				75177767275ECDC100CD3928 /* WikipediaPageView.swift */,
+				75FB0CDE2763BC5500554726 /* ContentView.swift */,
+				75FB0CE22763C58300554726 /* SearchView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7517775E275EBEA900CD3928 /* Preview Assets.xcassets in Resources */,
+				754AB6C4276145AD00BC36CC /* script.js in Resources */,
 				7517775B275EBEA900CD3928 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +225,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75177759275EBEA800CD3928 /* ContentView.swift in Sources */,
+				75177759275EBEA800CD3928 /* ExporeView.swift in Sources */,
+				7575F02F2763CDCB0098A1A2 /* AllTopReadArticlesView.swift in Sources */,
+				75ACCAA027625B31004D6473 /* Array.swift in Sources */,
+				7517776A275F983F00CD3928 /* WebView.swift in Sources */,
+				75E48022276116490007124D /* WikipediaViewModel.swift in Sources */,
+				754AB6C7276150ED00BC36CC /* TopFiveReadArticlesView.swift in Sources */,
+				75FB0CE12763C23100554726 /* ArticleCellView.swift in Sources */,
+				75E48025276117F60007124D /* WikipediaAPI.swift in Sources */,
+				75177768275ECDC100CD3928 /* WikipediaPageView.swift in Sources */,
+				75FB0CE32763C58300554726 /* SearchView.swift in Sources */,
+				754AB6CC2761532400BC36CC /* Date.swift in Sources */,
+				75D833492762A66D00ABEC67 /* CardView.swift in Sources */,
+				75FB0CDF2763BC5500554726 /* ContentView.swift in Sources */,
 				75177757275EBEA800CD3928 /* WikipediaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

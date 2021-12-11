@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct WikipediaApp: App {
+    let wikipediaViewModel = WikipediaViewModel()
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(wikipediaViewModel)
         }
     }
 }
