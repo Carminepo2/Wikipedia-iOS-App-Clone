@@ -17,6 +17,9 @@
 		754AB6C7276150ED00BC36CC /* TopFiveReadArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */; };
 		754AB6CC2761532400BC36CC /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AB6CB2761532400BC36CC /* Date.swift */; };
 		7575F02F2763CDCB0098A1A2 /* AllTopReadArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */; };
+		7591CE962765269500566205 /* FeaturedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591CE952765269500566205 /* FeaturedArticleView.swift */; };
+		7591CE98276662F300566205 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591CE97276662F300566205 /* RoundedCorner.swift */; };
+		7591CE9A276668D100566205 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591CE99276668D100566205 /* Haptics.swift */; };
 		75ACCAA027625B31004D6473 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ACCA9F27625B31004D6473 /* Array.swift */; };
 		75D833492762A66D00ABEC67 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D833482762A66D00ABEC67 /* CardView.swift */; };
 		75E48022276116490007124D /* WikipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E48021276116490007124D /* WikipediaViewModel.swift */; };
@@ -38,6 +41,9 @@
 		754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopFiveReadArticlesView.swift; sourceTree = "<group>"; };
 		754AB6CB2761532400BC36CC /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTopReadArticlesView.swift; sourceTree = "<group>"; };
+		7591CE952765269500566205 /* FeaturedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArticleView.swift; sourceTree = "<group>"; };
+		7591CE97276662F300566205 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		7591CE99276668D100566205 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		75ACCA9F27625B31004D6473 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		75D833482762A66D00ABEC67 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		75E48021276116490007124D /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				754AB6C3276145AD00BC36CC /* script.js */,
+				7591CE99276668D100566205 /* Haptics.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -109,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				75177758275EBEA800CD3928 /* ExporeView.swift */,
+				7591CE952765269500566205 /* FeaturedArticleView.swift */,
 				75D833482762A66D00ABEC67 /* CardView.swift */,
 				754AB6C6276150ED00BC36CC /* TopFiveReadArticlesView.swift */,
 				7575F02E2763CDCB0098A1A2 /* AllTopReadArticlesView.swift */,
@@ -122,6 +130,7 @@
 			children = (
 				754AB6CB2761532400BC36CC /* Date.swift */,
 				75ACCA9F27625B31004D6473 /* Array.swift */,
+				7591CE97276662F300566205 /* RoundedCorner.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,11 +236,14 @@
 			files = (
 				75177759275EBEA800CD3928 /* ExporeView.swift in Sources */,
 				7575F02F2763CDCB0098A1A2 /* AllTopReadArticlesView.swift in Sources */,
+				7591CE9A276668D100566205 /* Haptics.swift in Sources */,
 				75ACCAA027625B31004D6473 /* Array.swift in Sources */,
 				7517776A275F983F00CD3928 /* WebView.swift in Sources */,
 				75E48022276116490007124D /* WikipediaViewModel.swift in Sources */,
+				7591CE962765269500566205 /* FeaturedArticleView.swift in Sources */,
 				754AB6C7276150ED00BC36CC /* TopFiveReadArticlesView.swift in Sources */,
 				75FB0CE12763C23100554726 /* ArticleCellView.swift in Sources */,
+				7591CE98276662F300566205 /* RoundedCorner.swift in Sources */,
 				75E48025276117F60007124D /* WikipediaAPI.swift in Sources */,
 				75177768275ECDC100CD3928 /* WikipediaPageView.swift in Sources */,
 				75FB0CE32763C58300554726 /* SearchView.swift in Sources */,

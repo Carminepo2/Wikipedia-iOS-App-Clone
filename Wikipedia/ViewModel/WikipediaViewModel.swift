@@ -18,6 +18,10 @@ class WikipediaViewModel: ObservableObject {
     
     private var searchHandle: Task<Void, Never>?
     
+    var isfeedDataSuccessfullyFetched: Bool {
+        feedData != nil
+    }
+    
     var featuredArticle: WikipediaFeedDataPage? {
         if let feedData = feedData {
             return feedData.featuredArticle
@@ -41,32 +45,30 @@ class WikipediaViewModel: ObservableObject {
     
     
     init() {
+        getFeedData()
+    }
+    
+    
+    func getFeedData() {
         Task {
             DispatchQueue.main.async {
                 self.isLoadingFeed = true
             }
             
-            await self.getFeedData()
-            
-            DispatchQueue.main.async {
-                self.isLoadingFeed = false
+            let url = getFeedDataURL()
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                print(data)
+                let decodedResponse = try JSONDecoder().decode(WikipediaFeedDataResponse.self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.feedData = decodedResponse
+                    self.isLoadingFeed = false
+                }
+                
+            } catch {
+                print("error --->", error)
             }
-        }
-    }
-    
-    func getFeedData() async {
-        let url = getFeedDataURL()
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            print(data)
-            let decodedResponse = try JSONDecoder().decode(WikipediaFeedDataResponse.self, from: data)
-            
-            DispatchQueue.main.async {
-                self.feedData = decodedResponse
-            }
-            
-        } catch {
-            print("error --->", error)
         }
     }
     
@@ -119,7 +121,7 @@ class WikipediaViewModel: ObservableObject {
     
     
     private func getFeedDataURL() -> URL {
-        let date = Date.yesterday
+        let date = Date()
         let calendar = Calendar(identifier: .iso8601)
         
         let year = calendar.component(.year, from: date)

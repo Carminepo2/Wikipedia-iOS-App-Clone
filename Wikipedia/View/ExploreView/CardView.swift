@@ -46,7 +46,7 @@ struct CardView<Content: View>: View {
                     .fill(.white)
                 
                     content
-                        .padding(.horizontal)
+                        
                 
                 
                 

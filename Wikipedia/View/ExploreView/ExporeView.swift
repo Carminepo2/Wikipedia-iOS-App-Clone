@@ -15,43 +15,60 @@ struct ExploreView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    Text("Today")
-                        .font(.title2)
-                        .bold()
-                        .padding(.horizontal)
-                        .padding(.top, 40)
-                    
-                    
-                    CardView(title: "Top read") {
-                        TopFiveReadArticlesView()
-                    }
-                    BottomCardButton(label: "All top read articles") {
-                        isPresented = true
-                    }
-                    .fullScreenCover(isPresented: $isPresented) {
-                        AllTopReadArticlesView(isPresented: $isPresented)
+            if !viewModel.isLoadingFeed && !viewModel.isfeedDataSuccessfullyFetched {
+                Text("Network Error")
+                Button("Try again") {
+                    viewModel.getFeedData()
+                }
+            } else if viewModel.isLoadingFeed {
+                ProgressView()
+            } else {
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        Text("Today")
+                            .font(.title2)
+                            .bold()
+                            .padding(.horizontal)
+                            .padding(.top, 40)
+                        
+                        CardView(title: "Featured article") {
+                            FeaturedArticleView()
+                        }
+                        
+                        
+                        CardView(title: "Top read") {
+                            TopFiveReadArticlesView()
+                                .padding(.horizontal)
+
+                        }
+                        BottomCardButton(label: "All top read articles") {
+                            isPresented = true
+                        }
+                        .fullScreenCover(isPresented: $isPresented) {
+                            AllTopReadArticlesView(isPresented: $isPresented)
+                        }
                     }
                 }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar(content: {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Image("Wikipedia_wordmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 20)
+                            .padding(.vertical)
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            print("Settings")
+                        } label: {
+                            Image(systemName: "gear")
+                        }
+                        
+                    }
+                })
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Image("Wikipedia_wordmark")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 20)
-                        .padding(.vertical)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        print("Settings")
-                    } label: {
-                        Image(systemName: "gear")
-                    }
-                }
-            })
+            
         }
         .searchable(text: $viewModel.searchTerm)
         .onReceive(viewModel.$searchTerm.debounce(for: 0.3, scheduler: RunLoop.main)) { seachTerm in
