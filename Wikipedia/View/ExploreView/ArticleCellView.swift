@@ -42,7 +42,7 @@ struct ArticleCellView: View {
                 
 
                 VStack(alignment: .leading, spacing: 3) {
-                    Text(isLoading ? "placeholder text" : (article?.title ?? "Unknown"))
+                    Text(isLoading ? "placeholder text" : (article?.titles.normalized ?? "Unknown"))
                         .font(.system(size: 16))
                         .fontWeight(.light)
                         .lineLimit(1)

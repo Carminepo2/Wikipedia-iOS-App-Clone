@@ -86,6 +86,7 @@ struct WikipediaFeedDataPage: Codable {
     let description: String?
     let urls: WikipediaFeedDataURLS
     let extract: String
+    let titles: WikipediaFeedDataTitles
     
     enum CodingKeys: String, CodingKey {
         case id = "pageid"
@@ -95,7 +96,12 @@ struct WikipediaFeedDataPage: Codable {
         case description = "description"
         case urls = "content_urls"
         case extract = "extract"
+        case titles = "titles"
     }
+}
+
+struct WikipediaFeedDataTitles: Codable {
+    let normalized: String
 }
 
 struct WikipediaFeedDataThumbnail: Codable {

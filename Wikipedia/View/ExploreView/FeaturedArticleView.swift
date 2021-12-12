@@ -45,7 +45,7 @@ struct FeaturedArticleView: View {
                 }
                 VStack(alignment: .leading, spacing: 10) {
                     
-                    Text(article?.title ?? "")
+                    Text(article?.titles.normalized ?? "")
                         .font(.system(.title3, design: .serif))
                         .fontWeight(.thin)
                         .lineLimit(1)
