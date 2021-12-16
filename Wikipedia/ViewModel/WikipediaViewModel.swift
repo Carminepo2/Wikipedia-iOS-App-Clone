@@ -15,6 +15,8 @@ class WikipediaViewModel: ObservableObject {
     @Published private(set) var isLoadingFeed: Bool = false
     @Published private var feedData: WikipediaFeedDataResponse?
     
+    @Published var chosenSearchLanguage: WikipediaLanguage = .EN
+    
     
     private var searchHandle: Task<Void, Never>?
     
@@ -104,7 +106,7 @@ class WikipediaViewModel: ObservableObject {
         
         let escapedSeachTerm = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
         
-        let url = URL(string: "https://en.wikipedia.org/w/rest.php/v1/search/page?q=\(escapedSeachTerm)&limit=\(limit)&pithumbsize=\(thumbSize)")!
+        let url = URL(string: "https://api.wikimedia.org/core/v1/wikipedia/\(chosenSearchLanguage.rawValue)/search/title?q=\(escapedSeachTerm)&limit=\(limit)")!
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
@@ -131,5 +133,10 @@ class WikipediaViewModel: ObservableObject {
         let stringDay = day <= 9 ? "0\(day)": String(day)
         
         return URL(string: "https://api.wikimedia.org/feed/v1/wikipedia/en/featured/\(year)/\(stringMonth)/\(stringDay)")!
+    }
+    
+    enum WikipediaLanguage: String {
+        case EN = "en"
+        case IT = "it"
     }
 }

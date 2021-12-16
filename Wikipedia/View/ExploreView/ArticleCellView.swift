@@ -58,7 +58,6 @@ struct ArticleCellView: View {
                 Spacer()
 
                 if let thumbnail = article?.thumbnail?.source {
-
                     AsyncImage(
                         url: URL(string: thumbnail)!,
                         content: { image in

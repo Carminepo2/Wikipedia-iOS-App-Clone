@@ -13,36 +13,36 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
+
+            ExploreView()
+                .tabItem {
+                    Image(systemName: "safari.fill")
+                    Text("Explore")
+                }
             
-                ExploreView()
-                    .tabItem {
-                        Image(systemName: "safari.fill")
-                        Text("Explore")
-                    }
+            Text("Places")
+                .tabItem {
+                    Image(systemName: "mappin.and.ellipse")
+                    Text("Places")
+                }
             
-                Text("Places")
-                    .tabItem {
-                        Image(systemName: "mappin.and.ellipse")
-                        Text("Places")
-                    }
-                
-                Text("Saved")
-                    .tabItem {
-                        Image(systemName: "bookmark.fill")
-                        Text("Saved")
-                    }
-                
-                Text("History")
-                    .tabItem {
-                        Image(systemName: "clock.fill")
-                        Text("History")
-                    }
-                
-                Text("Search")
-                    .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
+            Text("Saved")
+                .tabItem {
+                    Image(systemName: "bookmark.fill")
+                    Text("Saved")
+                }
+            
+            Text("History")
+                .tabItem {
+                    Image(systemName: "clock.fill")
+                    Text("History")
+                }
+            
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
         }
         
     }

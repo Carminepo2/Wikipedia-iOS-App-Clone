@@ -56,8 +56,8 @@ struct FeaturedArticleView: View {
                         .lineLimit(1)
                     
                     Text(article?.extract ?? "")
-                        .font(.subheadline)
                         .lineLimit(4)
+                        .font(.subheadline)
                         .multilineTextAlignment(.leading)
                     
                     

@@ -70,12 +70,6 @@ struct ExploreView: View {
             }
             
         }
-        .searchable(text: $viewModel.searchTerm)
-        .onReceive(viewModel.$searchTerm.debounce(for: 0.3, scheduler: RunLoop.main)) { seachTerm in
-            Task {
-                await viewModel.executeQuery()
-            }
-        }
     }
 }
 
