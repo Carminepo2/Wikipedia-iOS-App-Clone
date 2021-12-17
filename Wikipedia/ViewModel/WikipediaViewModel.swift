@@ -14,11 +14,16 @@ class WikipediaViewModel: ObservableObject {
     @Published private(set) var isSearching: Bool = false
     @Published private(set) var isLoadingFeed: Bool = false
     @Published private var feedData: WikipediaFeedDataResponse?
-    
     @Published var chosenSearchLanguage: WikipediaLanguage = .EN
+    @Published private(set) var recentSearches: [RecentSearch] = []
     
     
     private var searchHandle: Task<Void, Never>?
+    
+    init() {
+        getFeedData()
+        refreshRecentSearches()
+    }
     
     var isfeedDataSuccessfullyFetched: Bool {
         feedData != nil
@@ -45,11 +50,27 @@ class WikipediaViewModel: ObservableObject {
         return []
     }
     
-    
-    init() {
-        getFeedData()
+    func addRecentSearch(forUrl url: String) {
+        CoreDataManager.shared.addRecentSearch(query: searchTerm, url: url)
+        refreshRecentSearches()
     }
     
+    func clearSearches() {
+        CoreDataManager.shared.clearSearches()
+        refreshRecentSearches()
+    }
+    
+    func deleteRecentSearch(at offsets: IndexSet) {
+        for index in offsets {
+            let recentSearch = recentSearches[index]
+            CoreDataManager.shared.deleteRecentSearch(recentSearch)
+        }
+        refreshRecentSearches()
+    }
+    
+    private func refreshRecentSearches() {
+        recentSearches = CoreDataManager.shared.loadRecentSearches()
+    }
     
     func getFeedData() {
         Task {

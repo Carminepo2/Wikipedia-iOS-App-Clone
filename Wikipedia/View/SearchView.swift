@@ -9,13 +9,14 @@ import SwiftUI
 
 struct SearchView: View {
     @EnvironmentObject var viewModel: WikipediaViewModel
+    @State private var confirmationClearRecentSearchesShown = false
     
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
                 HStack(spacing: 20) {
-                    LanguageButton(language: .EN)
-                    LanguageButton(language: .IT)
+                    LanguageButton(language: .EN, title: "English")
+                    LanguageButton(language: .IT, title: "Italian")
                     Spacer()
                     Button {
                         print("More")
@@ -24,22 +25,62 @@ struct SearchView: View {
                             .foregroundColor(.blue)
                             .font(.subheadline)
                     }
-
+                    
                 }
                 .padding(.horizontal)
-                .padding(.top)
+                .padding(.bottom, 8)
+            
                 
-                Divider()
-                    .padding(.top, 8)
-                
-                List {
-                    ForEach(viewModel.result, id: \.id) { result in
+                if viewModel.searchTerm.isEmpty {
+                    
+                    List {
+                        Section {
+                            HStack {
+                                Text("Recently searched")
+                                    .bold()
+                                Spacer()
+                                Text("Clear")
+                                    .font(.subheadline)
+                                    .foregroundColor(.blue)
+                                    .onTapGesture {
+                                        confirmationClearRecentSearchesShown = true
+                                    }
+                            }
+                            .padding(.vertical)
+                            .alert(isPresented:$confirmationClearRecentSearchesShown) {
+                                Alert(
+                                    title: Text("Delete all recent searches?"),
+                                    message: Text("This action cannot be undone!"),
+                                    primaryButton: .destructive(Text("Delete All")) {
+                                        viewModel.clearSearches()
+                                    },
+                                    secondaryButton: .cancel()
+                                )
+                            }
+                        }
+                        .listRowSeparator(.hidden)
                         
-                        SearchResultCellView(result: result)
-                        
+                        ForEach(viewModel.recentSearches, id: \.self) { recentSearch in
+                            NavigationLink {
+                                if let url = recentSearch.url {
+                                    WikipediaPageView(url: url)
+                                }
+                            } label: {
+                                Text(recentSearch.query ?? "Unknown")
+                            }
+                        }
+                        .onDelete(perform: viewModel.deleteRecentSearch)
                     }
+                    .listStyle(.plain)
+                } else {
+                    List {
+                        ForEach(viewModel.result, id: \.id) { result in
+                            SearchResultCellView(result: result)
+                        }
+                    }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
+                
             }
             .navigationTitle("Search")
             .searchable(text: $viewModel.searchTerm)
@@ -60,11 +101,18 @@ struct SearchView: View {
 
 struct SearchResultCellView: View {
     let result: WikipediaSearchResult
-    
+    @EnvironmentObject var viewModel: WikipediaViewModel
+
     
     var body: some View {
+        
+        let url = "https://\(viewModel.chosenSearchLanguage.rawValue).wikipedia.org/wiki/\(result.key)"
+        
         NavigationLink {
-            WikipediaPageView(url: "https://en.wikipedia.org/wiki/" + result.key)
+            WikipediaPageView(url: url)
+                .onAppear {
+                    viewModel.addRecentSearch(forUrl: url)
+                }
         } label: {
             HStack {
                 
@@ -102,6 +150,7 @@ struct SearchResultCellView: View {
                 )
             }
         }
+        
     }
 }
 
@@ -115,8 +164,9 @@ struct SearchView_Previews: PreviewProvider {
 
 struct LanguageButton: View {
     @EnvironmentObject var viewModel: WikipediaViewModel
-
+    
     let language: WikipediaViewModel.WikipediaLanguage
+    let title: String
     
     
     var body: some View {
@@ -137,7 +187,7 @@ struct LanguageButton: View {
                             .font(.system(size: 15))
                             .foregroundColor(.white)
                     }
-                Text("English")
+                Text(title)
                     .fontWeight(.light)
                     .font(.subheadline)
                     .offset(x: -2)
@@ -157,3 +207,4 @@ struct LanguageButton: View {
         
     }
 }
+

@@ -22,6 +22,8 @@
 		7591CE9A276668D100566205 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591CE99276668D100566205 /* Haptics.swift */; };
 		75ACCAA027625B31004D6473 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ACCA9F27625B31004D6473 /* Array.swift */; };
 		75D833492762A66D00ABEC67 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D833482762A66D00ABEC67 /* CardView.swift */; };
+		75D84C72276BE1460028C6FC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D84C71276BE1460028C6FC /* CoreDataManager.swift */; };
+		75D84C75276BE1690028C6FC /* RecentSearchesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75D84C73276BE1690028C6FC /* RecentSearchesModel.xcdatamodeld */; };
 		75E48022276116490007124D /* WikipediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E48021276116490007124D /* WikipediaViewModel.swift */; };
 		75E48025276117F60007124D /* WikipediaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E48024276117F60007124D /* WikipediaAPI.swift */; };
 		75FB0CDF2763BC5500554726 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB0CDE2763BC5500554726 /* ContentView.swift */; };
@@ -46,6 +48,8 @@
 		7591CE99276668D100566205 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		75ACCA9F27625B31004D6473 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		75D833482762A66D00ABEC67 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		75D84C71276BE1460028C6FC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		75D84C74276BE1690028C6FC /* RecentSearchesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecentSearchesModel.xcdatamodel; sourceTree = "<group>"; };
 		75E48021276116490007124D /* WikipediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaViewModel.swift; sourceTree = "<group>"; };
 		75E48024276117F60007124D /* WikipediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaAPI.swift; sourceTree = "<group>"; };
 		75FB0CDE2763BC5500554726 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 			children = (
 				754AB6C3276145AD00BC36CC /* script.js */,
 				7591CE99276668D100566205 /* Haptics.swift */,
+				75D84C71276BE1460028C6FC /* CoreDataManager.swift */,
+				75D84C73276BE1690028C6FC /* RecentSearchesModel.xcdatamodeld */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -240,6 +246,8 @@
 				75ACCAA027625B31004D6473 /* Array.swift in Sources */,
 				7517776A275F983F00CD3928 /* WebView.swift in Sources */,
 				75E48022276116490007124D /* WikipediaViewModel.swift in Sources */,
+				75D84C75276BE1690028C6FC /* RecentSearchesModel.xcdatamodeld in Sources */,
+				75D84C72276BE1460028C6FC /* CoreDataManager.swift in Sources */,
 				7591CE962765269500566205 /* FeaturedArticleView.swift in Sources */,
 				754AB6C7276150ED00BC36CC /* TopFiveReadArticlesView.swift in Sources */,
 				75FB0CE12763C23100554726 /* ArticleCellView.swift in Sources */,
@@ -453,6 +461,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		75D84C73276BE1690028C6FC /* RecentSearchesModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				75D84C74276BE1690028C6FC /* RecentSearchesModel.xcdatamodel */,
+			);
+			currentVersion = 75D84C74276BE1690028C6FC /* RecentSearchesModel.xcdatamodel */;
+			path = RecentSearchesModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7517774B275EBEA800CD3928 /* Project object */;
 }
