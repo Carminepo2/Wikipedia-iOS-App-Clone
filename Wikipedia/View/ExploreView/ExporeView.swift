@@ -10,9 +10,7 @@ import SwiftUI
 struct ExploreView: View {
     
     @EnvironmentObject var viewModel: WikipediaViewModel
-    
-    @State private var isPresented = false
-    
+        
     var body: some View {
         NavigationView {
             if !viewModel.isLoadingFeed && !viewModel.isfeedDataSuccessfullyFetched {
@@ -23,6 +21,43 @@ struct ExploreView: View {
             } else if viewModel.isLoadingFeed {
                 ProgressView()
             } else {
+                ExploreCards()
+                    .searchable(text: $viewModel.searchTerm)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar(content: {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Image("Wikipedia_wordmark")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 20)
+                                .padding(.vertical)
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button {
+                                print("Settings")
+                            } label: {
+                                Image(systemName: "gear")
+                            }
+                            
+                        }
+                    })
+            }
+        }
+    }
+    
+    
+   
+}
+
+struct ExploreCards: View {
+    @EnvironmentObject var viewModel: WikipediaViewModel
+    @Environment(\.isSearching) private var isSearching: Bool
+    
+    @State private var areAllTopArticlesPresented = false
+
+    var body: some View {
+        VStack {
+            ZStack {
                 ScrollView {
                     VStack(alignment: .leading) {
                         Text("Today")
@@ -31,44 +66,41 @@ struct ExploreView: View {
                             .padding(.horizontal)
                             .padding(.top, 40)
                         
-                        CardView(title: "Featured article") {
-                            FeaturedArticleView()
-                        }
+                        CardView(title: "Featured article", content: FeaturedArticleView.init)
+                        CardView(title: "Top read", content: TopFiveReadArticlesView.init)
                         
-                        
-                        CardView(title: "Top read") {
-                            TopFiveReadArticlesView()
-                                .padding(.horizontal)
-
-                        }
-                        BottomCardButton(label: "All top read articles") {
-                            isPresented = true
-                        }
-                        .fullScreenCover(isPresented: $isPresented) {
-                            AllTopReadArticlesView(isPresented: $isPresented)
+                        BottomCardButton(label: "All top read articles", action: showAllTopArticles)
+                        .fullScreenCover(isPresented: $areAllTopArticlesPresented) {
+                            AllTopReadArticlesView(isPresented: $areAllTopArticlesPresented)
                         }
                     }
                 }
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar(content: {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Image("Wikipedia_wordmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 20)
-                            .padding(.vertical)
-                    }
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            print("Settings")
-                        } label: {
-                            Image(systemName: "gear")
-                        }
-                        
-                    }
-                })
+                .opacity(isSearching ? 0 : 1)
+                
+                if isSearching {
+                    SearchView()
+                }
             }
-            
+        }
+        
+        
+    }
+    
+    func showAllTopArticles() {
+        areAllTopArticlesPresented = true
+    }
+}
+
+struct Test: View {
+    @EnvironmentObject var viewModel: WikipediaViewModel
+
+    @Environment(\.isSearching) var isSearching
+
+    var body: some View {
+        VStack {
+            Text(viewModel.searchTerm)
+            Text("\(isSearching ? "Cercando" : "Non Cercando")")
+
         }
     }
 }

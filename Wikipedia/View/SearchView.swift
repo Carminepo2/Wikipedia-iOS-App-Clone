@@ -12,11 +12,10 @@ struct SearchView: View {
     @State private var confirmationClearRecentSearchesShown = false
     
     var body: some View {
-        NavigationView {
             VStack(spacing: 0) {
                 HStack(spacing: 20) {
                     LanguageButton(language: .EN, title: "English")
-                    LanguageButton(language: .IT, title: "Italian")
+                    LanguageButton(language: .IT, title: "Italiano")
                     Spacer()
                     Button {
                         print("More")
@@ -29,6 +28,7 @@ struct SearchView: View {
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 8)
+                .padding(.top, 4)
             
                 
                 if viewModel.searchTerm.isEmpty {
@@ -60,7 +60,7 @@ struct SearchView: View {
                         }
                         .listRowSeparator(.hidden)
                         
-                        ForEach(viewModel.recentSearches, id: \.self) { recentSearch in
+                        ForEach(viewModel.recentSearches, id: \.objectID) { recentSearch in
                             NavigationLink {
                                 if let url = recentSearch.url {
                                     WikipediaPageView(url: url)
@@ -73,17 +73,35 @@ struct SearchView: View {
                     }
                     .listStyle(.plain)
                 } else {
-                    List {
-                        ForEach(viewModel.result, id: \.id) { result in
-                            SearchResultCellView(result: result)
+                    
+                    if viewModel.isSearching {
+                        VStack {
+                            Spacer()
+                            ProgressView()
+                            Spacer()
+                        }
+                    } else if !viewModel.isSearching && viewModel.result.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("No results")
+                                .foregroundColor(.secondary)
+                            Spacer()
                         }
                     }
-                    .listStyle(.plain)
+                    
+                    
+                    else {
+                        List {
+                            ForEach(viewModel.result, id: \.id) { result in
+                                SearchResultCellView(result: result)
+                            }
+                        }
+                        .listStyle(.plain)
+                    }
+                    
                 }
                 
             }
-            .navigationTitle("Search")
-            .searchable(text: $viewModel.searchTerm)
             .disableAutocorrection(true)
             .onReceive(viewModel.$searchTerm.debounce(for: 0.3, scheduler: RunLoop.main)) { seachTerm in
                 Task {
@@ -96,7 +114,7 @@ struct SearchView: View {
                 }
             }
         }
-    }
+    
 }
 
 struct SearchResultCellView: View {

@@ -20,8 +20,7 @@ struct TopFiveReadArticlesView: View {
                 }
             }
             .padding(.vertical, 20)
-        
-        
+            .padding(.horizontal)
     }
     
 }

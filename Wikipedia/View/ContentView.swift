@@ -38,11 +38,17 @@ struct ContentView: View {
                     Text("History")
                 }
             
-            SearchView()
-                .tabItem {
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
-                }
+            NavigationView {
+                SearchView()
+                    .navigationTitle("Search")
+                    .searchable(text: $viewModel.searchTerm)
+                    
+            }
+            .tabItem {
+                Image(systemName: "magnifyingglass")
+                Text("Search")
+            }
+           
         }
         
     }
